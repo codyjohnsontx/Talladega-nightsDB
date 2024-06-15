@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Talladega Nights Quotes Machine</h1>
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="name" name="name" />
+        <input type="text" placeholder="quote" name="quote" />
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Quotes</h2>
+
+    <ul class="quotes">
+        <% for(var i = 0; i < quotes.length; i++) { %>
+            <li class="quote">
+                <span class="name"><%= quotes[i].name %>:</span>
+                <span class="quote-text"><%= quotes[i].quote %></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <div class="container">
+        <h2>Cal Naughton Jr. joins the party!</h2>
+        <p>Add a quote written by Cal Naughton Jr. to the list</p>
+        <button id="update-button">Add quote</button>
+    </div>
+
+    <div class="container">
+        <h2>Remove Cal Naughton Jr.!</h2>
+        <p>Delete one of Cal Naughton Jr.'s quotes. Does nothing if there aren't any more Cal Naughton Jr.'s quotes.</p>
+        <button id="delete-button">Delete Cal Naughton Jr's quote</button>
+    </div>
+
+    <p id="update-message"></p>
+    <div id="message"></div>
+
+    <script src="/main.js"></script>
+</body>
+</html>
